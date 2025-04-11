@@ -1,0 +1,35 @@
+﻿@model StudentsDetails.Models.Student
+
+
+<h2>Are you sure you want to delete this?</h2>
+
+
+
+<form asp-action="Delete">
+    <input type="hidden" asp-for="Id" />
+    <div class="form-group">
+        <label asp-for="@Model.Name" class="form-label"></label>
+        <input disabled asp-for="@Model.Name" class="form-control" />
+        <span asp-validation-for="@Model.Name" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="@Model.DateofBirth" class="form-label"></label>
+        <input disabled asp-for="@Model.DateofBirth" class="form-control" />
+        <span asp-validation-for="@Model.DateofBirth" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="@Model.Email" class="form-label"></label>
+        <input disabled asp-for="@Model.Email" class="form-control" />
+        <span asp-validation-for="@Model.Email" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="@Model.CourseName" class="form-label"></label>
+        <input disabled asp-for="@Model.CourseName" class="form-control" />
+        <span asp-validation-for="@Model.CourseName" class="text-danger"></span>
+    </div>
+    
+
+
+    <button type="submit" class="btn btn-danger">Delete</button>
+    <a asp-action="GetallCourse" class="btn btn-secondary">Cancel</a>
+</form>

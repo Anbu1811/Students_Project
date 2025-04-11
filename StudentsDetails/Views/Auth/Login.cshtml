@@ -1,0 +1,78 @@
+﻿@model StudentsDetails.Models.ApplicationUser
+
+<h4>You don't  have account please <a href="Auth/Register1">register</a></h4>
+
+
+
+@if (TempData["SuccessMessage"] != null)
+{
+    @if ("User create successfully!" == TempData["SuccessMessage"])
+    {
+        <div id="tempMessage" class="alert alert-success">
+            @TempData["SuccessMessage"]
+        </div>
+        <script>
+            setTimeout(function () {
+                var msg = document.getElementById("tempMessage");
+                if (msg) {
+                    msg.style.display = "none";
+                }
+            }, 3000); // 3000 milliseconds = 3 seconds
+        </script>
+
+    }
+    else
+    {
+        <div id="tempMessage" class="alert alert-danger">
+            @TempData["SuccessMessage"]
+        </div>
+        <script>
+            setTimeout(function () {
+                var msg = document.getElementById("tempMessage");
+                if (msg) {
+                    msg.style.display = "none";
+                }
+            }, 3000); // 3000 milliseconds = 3 seconds
+        </script>
+    }
+   
+
+   
+}
+
+
+@using (Html.BeginForm())
+{
+    <div class="form-group">
+        @Html.LabelFor(Model => Model.UserName, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(Model => Model.UserName, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(Model => Model.UserName, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(Model => Model.PasswordHash, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.PasswordFor(Model => Model.PasswordHash, new { @class = "form-control" })
+            @Html.ValidationMessageFor(Model => Model.PasswordHash, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    @if (TempData["message"] != null)
+    {
+
+        <div class="alert alert-success">@TempData["message"]</div>
+        
+    }
+
+
+
+
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Login" class="btn btn-success" />
+        </div>
+    </div>
+}

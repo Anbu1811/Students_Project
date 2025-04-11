@@ -1,0 +1,157 @@
+﻿@model StudentsDetails.Models.RegisterModel
+
+<h3>Welcome to Register Page</h3>
+
+
+@if (TempData["SuccessMessage"] != null)
+{
+    <div id="tempMessage" class="alert alert-success">
+        @TempData["SuccessMessage"]
+    </div>
+
+    <script>
+        setTimeout(function () {
+            var msg = document.getElementById("tempMessage");
+            if (msg) {
+                msg.style.display = "none";
+            }
+        }, 4000); // 4000 milliseconds = 4 seconds
+    </script>
+}
+
+
+@using (Html.BeginForm())
+{
+
+    <div class="form-horizontal">
+
+
+      
+        <hr />
+        <p class="text-center">You have already account <a href="Login">LogIn</a></p>
+       
+           
+       
+        
+
+        <div class="form-group">
+            @Html.LabelFor(Model => Model.applicationUser.FirstName, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(Model => Model.applicationUser.FirstName, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(Model => Model.applicationUser.FirstName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(Model => Model.applicationUser.LastName, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(Model => Model.applicationUser.LastName, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(Model => Model.applicationUser.LastName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(Model => Model.applicationUser.UserName, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(Model => Model.applicationUser.UserName, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(Model => Model.applicationUser.UserName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(Model => Model.applicationUser.Email, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(Model => Model.applicationUser.Email, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(Model => Model.applicationUser.Email, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(Model => Model.applicationUser.PasswordHash, "Password", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.PasswordFor(Model => Model.applicationUser.PasswordHash,  new { @class = "form-control" } )
+                @Html.ValidationMessageFor(Model => Model.applicationUser.PasswordHash, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        @* <div class="form-group">
+            @Html.LabelFor(Model => Model.SelectRole, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(Model => Model.role.UserRole, (SelectList)ViewBag.userRoles,"Select Role",  new { @class = "form-control" })
+                @Html.ValidationMessageFor(Model => Model.role.UserRole, "", new { @class = "text-danger" })
+            </div>
+        </div> *@
+        <div class="form-group">
+            @Html.LabelFor(model => model.SelectRole, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.SelectRole, Model.AvailableRoles, "Select Role", new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.SelectRole, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+
+
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-success" />
+            </div>
+        </div>
+
+
+    </div>
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+     @*    <div class="form-group">
+            @Html.LabelFor(Model => Model, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @* @Html.EditorFor(Model => Model.Role, new { htmlAttributes = new { @class = "form-control" } })  *@
+
+
+                @* @Html.DropDownListFor(Model => Model.Role, (SelectList)ViewBag.userRoles, "Select Role", new { @class = "form-control" })
+            @Html.DropDownListFor(model => model.Role, (SelectList)ViewBag.UserRoles, "Select Role", new { @class = "form-control" })
+                @Html.DropDownListFor(Model => Model.Role, (SelectList)ViewBag.roleAsign, "Select Role", new { @class = "form-control" })
+
+                @Html.ValidationMessageFor(Model => Model.Role, "", new { @class = "text-danger" })
+            </div>
+        </div> 
+
+
+
+        <div class="form-group">
+            @Html.LabelFor(Model => Model.Password, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(Model => Model.Password, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(Model => Model.Password, "", new { @class = "text-danger" })
+            </div>
+    </div>*@
+
+
+
+
+
+
+
+
+        
+}

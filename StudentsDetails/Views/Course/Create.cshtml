@@ -1,0 +1,29 @@
+﻿@model StudentsDetails.Models.Course
+
+
+<h3> This is Create page from Course controller.</h3>
+
+
+<form asp-action="Create" method="post">
+    
+    
+    <div class="form-group">
+        <label asp-for="@Model.CourseName" class="form-label"></label>
+        <input asp-for="@Model.CourseName" class="form-control" />
+        <span asp-validation-for="@Model.CourseName" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="@Model.CourseDescription" class="form-label"></label>
+        <input asp-for="@Model.CourseDescription" class="form-control" />
+        <span asp-validation-for="@Model.CourseDescription" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-primary">Save</button>
+    <a asp-action="GetallCourse" class="btn btn-secondary">Cancel</a>
+
+
+   
+
+</form>
+
+
+

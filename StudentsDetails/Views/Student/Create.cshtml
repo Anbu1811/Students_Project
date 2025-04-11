@@ -1,0 +1,60 @@
+﻿@model StudentsDetails.Models.CourseViewModel
+
+
+<h2>Register Form</h2>
+@using (Html.BeginForm())
+{
+    <div class="form-group">
+        @Html.LabelFor(Model => Model.student.Name, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(Model => Model.student.Name, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(Model => Model.student.Name, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(Model => Model.student.Email, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(Model => Model.student.Email, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(Model => Model.student.Email, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(Model => Model.student.DateofBirth, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(Model => Model.student.DateofBirth, new { htmlAttributes = new { @class = "form-control" } })
+
+            @Html.ValidationMessageFor(Model => Model.student.DateofBirth, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+ 
+
+<div class="form-group">
+    @Html.LabelFor(Model => Model.student.CourseName, htmlAttributes: new { @class = "control-label col-md-2" })
+    <div class="col-md-10">
+            @Html.DropDownListFor(Model => Model.student.CourseName,Model.availableCourse, "Select Course", new { @class = "form-control" })
+
+
+            @Html.ValidationMessageFor(Model => Model.student.CourseName, "", new { @class = "text-danger" })
+    </div>
+</div>
+
+
+   
+
+    
+
+
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Create" class="btn btn-success" />
+        </div>
+    </div>
+
+   
+}
+
+

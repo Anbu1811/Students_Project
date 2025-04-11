@@ -1,0 +1,69 @@
+﻿@model StudentsDetails.Models.User
+
+
+
+@using (Html.BeginForm())
+{
+
+    <div class="form-horizontal">
+
+
+        <h4>Log In</h4>
+        <hr />
+
+   @*  <div class="form-group">
+            @Html.LabelFor(Model => Model.UserName, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(Model => Model.UserName, new { htmlAttributes = new { @class = "form-control"}} )
+                @Html.ValidationMessageFor(Model => Model.UserName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(Model => Model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(Model => Model.Email, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(Model => Model.Email, "", new { @class = "text-danger" })
+            </div>
+        </div> *@
+
+        <div class="form-group">
+            @Html.LabelFor(Model => Model.Role, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                 @* @Html.EditorFor(Model => Model.Role, new { htmlAttributes = new { @class = "form-control" } })  *@
+
+
+                @* @Html.DropDownListFor(Model => Model.Role, (SelectList)ViewBag.userRoles, "Select Role", new { @class = "form-control" })
+            @Html.DropDownListFor(model => model.Role, (SelectList)ViewBag.UserRoles, "Select Role", new { @class = "form-control" })*@
+                @Html.DropDownListFor(Model => Model.Role, (SelectList)ViewBag.UserRoles, "Select Role", new { @class = "form-control" })
+                
+                @Html.ValidationMessageFor(Model => Model.Role, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+
+
+      @*   <div class="form-group">
+            @Html.LabelFor(Model => Model.Password, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(Model => Model.Password, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(Model => Model.Password, "", new { @class = "text-danger" })
+            </div>
+        </div>
+     *@
+    
+
+
+
+
+      
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Create" class="btn btn-success" />
+                </div>
+            </div>
+        
+
+    </div>
+}

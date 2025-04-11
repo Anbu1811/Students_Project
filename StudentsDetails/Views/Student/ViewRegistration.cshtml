@@ -1,0 +1,40 @@
+﻿@model IEnumerable<StudentsDetails.Models.Student>
+
+
+<h3> List of Application</h3>
+
+
+
+
+<table class="table">
+    <thead class="thead-light">
+        <tr>
+
+
+            <th scope="col">Name</th>
+            <th scope="col">DOB</th>
+            <th scope="col">EMAIL</th>
+            <th scope="col">Course Name</th>
+            <th scope="col">Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+
+                <td>@item.Name</td>
+                <td>@item.DateofBirth</td>
+                <td>@item.Email</td>
+                <td>@item.CourseName</td>
+                <td>
+                    <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger btn-sm">Delete</a>
+                </td>
+
+                
+            </tr>
+        }
+
+
+    </tbody>
+</table>

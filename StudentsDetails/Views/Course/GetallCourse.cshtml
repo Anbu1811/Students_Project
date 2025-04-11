@@ -1,0 +1,124 @@
+﻿@model IEnumerable<StudentsDetails.Models.Course>
+
+
+<h3> List of Course</h3>
+<p> If you want to add new course <a asp-controller="Course" asp-action="Create" class="btn btn-primary"> Create</a></p>
+
+
+
+@if (TempData["SuccessMessage"] != null)
+{
+    <div id="tempMessage" class="alert alert-success">
+        @TempData["SuccessMessage"]
+    </div>
+
+    <script>
+        setTimeout(function () {
+            var msg = document.getElementById("tempMessage");
+            if (msg) {
+                msg.style.display = "none";
+            }
+        }, 4000); // 4000 milliseconds = 4 seconds
+    </script>
+}
+
+
+
+<table class="table">
+    <thead class="thead-light">
+        <tr>
+            
+         
+            <th scope="col">Course</th>
+            <th scope="col">Description</th>
+            <th scope="col">Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+              
+                <td>@item.CourseName</td>
+                <td>@item.CourseDescription</td>
+                <td>
+                   @*  <a asp-action="View" asp-route-id="@item.Id" class="btn btn-info btn-sm">View</a> *@
+                    <a asp-action="Update" asp-route-id="@item.Id" class="btn btn-warning btn-sm">Edit</a>
+                    <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger btn-sm">Delete</a>
+                </td>
+            </tr>
+        }
+        
+       
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@* 
+
+<table class="table">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">First</th>
+            <th scope="col">Last</th>
+            <th scope="col">Handle</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <th scope="row">1</th>
+            <td>Mark</td>
+            <td>Otto</td>
+            <td>@mdo</td>
+        </tr>
+        <tr>
+            <th scope="row">2</th>
+            <td>Jacob</td>
+            <td>Thornton</td>
+            <td>@fat</td>
+        </tr>
+        <tr>
+            <th scope="row">3</th>
+            <td>Larry</td>
+            <td>the Bird</td>
+            <td>@twitter</td>
+        </tr>
+    </tbody>
+</table> *@
